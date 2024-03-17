@@ -1,0 +1,13 @@
+services:
+  tensorflow:
+    image: tensorflow/tensorflow:latest-gpu-jupyter
+    runtime: nvidia
+    ports:
+      - "8888:8888"
+    devices:
+      - "/dev/nvidia0:/dev/nvidia0"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./notebooks:/home/notebooks
+    tty: true
